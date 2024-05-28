@@ -1,6 +1,6 @@
 # ChatTTS 项目功能分享
 
-首先非常感谢的`ChatTTS`的开源 [https://github.com/2noise/ChatTTS](https://github.com/2noise/ChatTTS)，首先非常感谢的ChatTTS的开源https://github.com/Kedreamix/ChatTTS.git，ChatTTS是专门为对话场景设计的语音生成模型，用于LLM助手对话任务，对话语音，视频介绍等，支持中英文。这是他的B站视频的介绍：[突破开源天花板！ChatTTS：对话式高可控的语音合成模型_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1zn4y1o7iV/)，也请大家多多star他的项目和三连哈哈！
+首先非常感谢的`ChatTTS`的开源 [https://github.com/2noise/ChatTTS](https://github.com/2noise/ChatTTS)，ChatTTS是专门为对话场景设计的语音生成模型，用于LLM助手对话任务，对话语音，视频介绍等，支持中英文。这是他的B站视频的介绍：[突破开源天花板！ChatTTS：对话式高可控的语音合成模型_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1zn4y1o7iV/)，也请大家多多star他的项目和三连哈哈！
 
 正如他infer.ipynb里面的一句话 “我觉得像我们这些写程序的人，他，我觉得多多少少可能会对开源有一种情怀在吧我觉得开源是一个很好的形式。现在其实最先进的技术掌握在一些公司的手里的话，就他们并不会轻易的开放给所有的人用。”
 
