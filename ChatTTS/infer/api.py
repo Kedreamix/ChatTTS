@@ -23,7 +23,7 @@ def infer_code(
         
     if not isinstance(temperature, list):
         temperature = [temperature] * models['gpt'].num_vq
-    
+    # 选择声音
     if spk_emb is not None:
         text = [f'[Stts][spk_emb]{i}[uv_break][Ptts]' for i in text] 
     else:

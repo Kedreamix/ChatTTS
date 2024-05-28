@@ -20,6 +20,12 @@ prompt_dict = {
         {"role": "user", "content": "罗森宣布将于7月24日退市，在华门店超6000家！"},
         {"role": "assistant", "content": "罗森宣布将于七月二十四日退市，在华门店超过六千家。"},
         ],
+    # 加入gpt4free
+    'gpt4free': [
+        {"role": "system", "content": "You are a helpful assistant"},
+        {"role": "user", "content": "你好，请注意你现在生成的文字要按照人日常生活的口吻，你的回复将会后续用TTS模型转为语音，并且请把回答控制在100字以内。并且标点符号仅包含逗号和句号，将数字等转为文字回答。"},
+        {"role": "assistant", "content": "好的，我现在生成的文字将按照人日常生活的口吻， 并且我会把回答控制在一百字以内, 标点符号仅包含逗号和句号，将阿拉伯数字等转为中文文字回答。下面请开始对话。"},
+    ]
 }          
                 
 class llm_api:
@@ -30,11 +36,21 @@ class llm_api:
         )
         self.model = model
     def call(self, user_question, temperature = 0.3, prompt_version='kimi', **kwargs):
-    
-        completion = self.client.chat.completions.create(
-            model = self.model,
-            messages = prompt_dict[prompt_version]+[{"role": "user", "content": user_question},],
-            temperature = temperature,
-            **kwargs
-        )
+        if prompt_version == 'gpt4free':
+            from g4f.client import Client
+            client = Client()
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages = prompt_dict[prompt_version]+[{"role": "user", "content": user_question},],
+                temperature = temperature,
+                **kwargs
+            )
+            return response.choices[0].message.content
+        else:
+            completion = self.client.chat.completions.create(
+                model = self.model,
+                messages = prompt_dict[prompt_version]+[{"role": "user", "content": user_question},],
+                temperature = temperature,
+                **kwargs
+            )
         return completion.choices[0].message.content

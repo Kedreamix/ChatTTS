@@ -102,10 +102,13 @@ class Chat:
     
     def infer(self, text, skip_refine_text=False, params_refine_text={}, params_infer_code={}, use_decoder=False):
         assert self.check_model(use_decoder=use_decoder)
+        # 重写文本，实际上是预处理文本，加入了uvbreak的标记
         if not skip_refine_text:
             text_tokens = refine_text(self.pretrain_models, text, **params_refine_text)['ids']
             text_tokens = [i[i < self.pretrain_models['tokenizer'].convert_tokens_to_ids('[break_0]')] for i in text_tokens]
             text = self.pretrain_models['tokenizer'].batch_decode(text_tokens)
+            print('Refine text:')
+            print("\n".join(text))
         result = infer_code(self.pretrain_models, text, **params_infer_code, return_hidden=use_decoder)
         if use_decoder:
             mel_spec = [self.pretrain_models['decoder'](i[None].permute(0,2,1)) for i in result['hiddens']]
