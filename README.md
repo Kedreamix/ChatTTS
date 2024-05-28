@@ -1,10 +1,8 @@
-# ChatTTS
+# ChatTTS 项目功能分享
 
-首先非常感谢的`ChatTTS`的开源，真如他infer.ipynb里面的一句话“我觉得像我们这些写程序的人，他，我觉得多多少少可能会对开源有一种情怀在吧我觉得开源是一个很好的形式。现在其实最先进的技术掌握在一些公司的手里的话，就他们并不会轻易的开放给所有的人用。”
+首先非常感谢的`ChatTTS`的开源[https://github.com/Kedreamix/ChatTTS.git](https://github.com/Kedreamix/ChatTTS.git)，真如他infer.ipynb里面的一句话 “我觉得像我们这些写程序的人，他，我觉得多多少少可能会对开源有一种情怀在吧我觉得开源是一个很好的形式。现在其实最先进的技术掌握在一些公司的手里的话，就他们并不会轻易的开放给所有的人用。”
 
-我自己也深有感触，首先我给予一定的respect，我本身也在DataWahle开源组织里面进行贡献，也带有这样的情怀，非常respect这样的精神
-
-
+我自己也深有感触，首先我给予一定的respect，我本身也在Datawhale开源组织里面进行贡献，也带有这样的情怀，我也非常respect这样的精神
 
 在今天早上看到有关于ChatTTS的介绍，十分的不错，因此也是通过视频和代码学习了以下ChatTTS的架构和使用方法，也给分享出来学习，并且整理了一个colab代码，可以直接运行和学习。
 
@@ -148,7 +146,7 @@ wav = chat.infer('四川美食确实以辣闻名，但也有不辣的选择。�
 
 
 
-### 文本韵律调整
+## 文本韵律调整
 
 同时，我们其实还可以调整文本的韵律，前面我们介绍过skip_refine_text参数，实际上他是自动的对文本预处理，但是可能这种预处理是不够精细的，也有可能是文本不想关，我们拿b站视频的例子，我们跳过skip_refine_text参数，自己给出带有韵律的文本，我们不仅可以可控生成停顿的韵律，也可以听到笑声。
 
@@ -164,7 +162,7 @@ wav = chat.infer('ChatTTS 不仅能够生成自然流畅的语音[uv_break],还�
                  params_refine_text=params_refine_text, params_infer_code=params_infer_code)
 ```
 
-
+更多音频例子可以在colab在线听！
 
 ## To be Finished
 
