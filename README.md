@@ -1,5 +1,7 @@
 # ChatTTS
 
+colab体验分享：https://colab.research.google.com/drive/13tkUAJgYVCUdsFwneD9_B4FBrVUJxA0z?usp=sharing
+
 ## To be Finished
 
 ```python
