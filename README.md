@@ -166,6 +166,74 @@ wav = chat.infer('ChatTTS 不仅能够生成自然流畅的语音[uv_break],还�
 
 更多音频例子可以在colab在线听！
 
+后续我发现，如果在模型里面打印tokentizer，可以看到对应的参数，我们实际上可以看到里面有很多韵律设置的方法，具体的作用还得继续探讨
+
+```python
+chat.pretrain_models['tokenizer']
+```
+
+```bash
+BertTokenizerFast(name_or_path='thenlper/gte-large-zh', vocab_size=21128, model_max_length=1000000000000000019884624838656, is_fast=True, padding_side='left', truncation_side='right', special_tokens={'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]', 'additional_special_tokens': ['[Sasr]', '[Pasr]', '[Easr]', '[Stts]', '[Ptts]', '[Etts]', '[Sbreak]', '[Pbreak]', '[Ebreak]', '[uv_break]', '[v_break]', '[lbreak]', '[llbreak]', '[undefine]', '[laugh]', '[spk_emb]', '[empty_spk]', '[music]', '[pure]', '[break_0]', '[break_1]', '[break_2]', '[break_3]', '[break_4]', '[break_5]', '[break_6]', '[break_7]', '[laugh_0]', '[laugh_1]', '[laugh_2]', '[oral_0]', '[oral_1]', '[oral_2]', '[oral_3]', '[oral_4]', '[oral_5]', '[oral_6]', '[oral_7]', '[oral_8]', '[oral_9]', '[speed_0]', '[speed_1]', '[speed_2]', '[speed_3]', '[speed_4]', '[speed_5]', '[speed_6]', '[speed_7]', '[speed_8]', '[speed_9]']}, clean_up_tokenization_spaces=True),  added_tokens_decoder={
+	0: AddedToken("[PAD]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	100: AddedToken("[UNK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	101: AddedToken("[CLS]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	102: AddedToken("[SEP]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	103: AddedToken("[MASK]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21128: AddedToken("[Sasr]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21129: AddedToken("[Pasr]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21130: AddedToken("[Easr]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21131: AddedToken("[Stts]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21132: AddedToken("[Ptts]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21133: AddedToken("[Etts]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21134: AddedToken("[Sbreak]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21135: AddedToken("[Pbreak]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21136: AddedToken("[Ebreak]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21137: AddedToken("[uv_break]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21138: AddedToken("[v_break]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21139: AddedToken("[lbreak]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21140: AddedToken("[llbreak]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21141: AddedToken("[undefine]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21142: AddedToken("[laugh]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21143: AddedToken("[spk_emb]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21144: AddedToken("[empty_spk]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21145: AddedToken("[music]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21146: AddedToken("[pure]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21147: AddedToken("[break_0]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21148: AddedToken("[break_1]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21149: AddedToken("[break_2]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21150: AddedToken("[break_3]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21151: AddedToken("[break_4]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21152: AddedToken("[break_5]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21153: AddedToken("[break_6]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21154: AddedToken("[break_7]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21155: AddedToken("[laugh_0]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21156: AddedToken("[laugh_1]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21157: AddedToken("[laugh_2]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21158: AddedToken("[oral_0]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21159: AddedToken("[oral_1]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21160: AddedToken("[oral_2]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21161: AddedToken("[oral_3]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21162: AddedToken("[oral_4]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21163: AddedToken("[oral_5]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21164: AddedToken("[oral_6]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21165: AddedToken("[oral_7]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21166: AddedToken("[oral_8]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21167: AddedToken("[oral_9]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21168: AddedToken("[speed_0]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21169: AddedToken("[speed_1]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21170: AddedToken("[speed_2]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21171: AddedToken("[speed_3]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21172: AddedToken("[speed_4]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21173: AddedToken("[speed_5]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21174: AddedToken("[speed_6]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21175: AddedToken("[speed_7]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21176: AddedToken("[speed_8]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+	21177: AddedToken("[speed_9]", rstrip=False, lstrip=False, single_word=False, normalized=False, special=True),
+}
+```
+
+
+
 ## To be Finished
 
 ```python
