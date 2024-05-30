@@ -42,6 +42,7 @@ class Chat:
     def load_models(self, source='huggingface'):
         if source == 'huggingface':
             download_path = snapshot_download(repo_id="2Noise/ChatTTS", allow_patterns=["*.pt", "*.yaml"])
+            self.model_save_path = download_path
             self._load(**{k: os.path.join(download_path, v) for k, v in OmegaConf.load(os.path.join(download_path, 'config', 'path.yaml')).items()})
             
     def _load(
