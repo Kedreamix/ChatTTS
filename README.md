@@ -8,7 +8,7 @@
 
 在今天早上看到有关于ChatTTS的介绍，十分的不错，因此也是通过视频和代码学习了以下ChatTTS的架构和使用方法，也给分享出来学习，并且整理了一个colab代码，可以直接运行和学习。
 
-> colab在线体验分享：[https://colab.research.google.com/github/Kedreamix/ChatTTS/blob/main/ChatTTS_infer.ipynb](https://colab.research.google.com/github/Kedreamix/ChatTTS/blob/main/ChatTTS_infer.ipynb)
+> colab在线体验分享：[https://colab.research.google.com/github/yaokui2018/ChatTTS/blob/main/ChatTTS_infer.ipynb](https://colab.research.google.com/github/yaokui2018/ChatTTS/blob/main/ChatTTS_infer.ipynb)
 
 现在ChatTTS功能总结如下
 
@@ -128,7 +128,6 @@ text
 在提供的infer.ipynb读入了spk_stat.pt文件，仔细看了以后，我猜测是有关于speaker声音的均值和方差，然后进行一个采样，但是文件中没有提供，所以直接运行会报错
 
 ```bash
-# 暂无提供pt文件，应该是有关于speaker声音的均值和方差，会报错
 spk_stat = torch.load('ChatTTS/asset/spk_stat.pt')
 # 生成一个随机的说话者向量
 rand_spk = torch.randn(768) * spk_stat.chunk(2)[0] + spk_stat.chunk(2)[1]
